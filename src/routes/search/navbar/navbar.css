@@ -1,0 +1,17 @@
+.navbar {
+  margin: 20px 0px;
+  border-bottom: 1px solid rgba(185, 185, 185, 0.1);
+  padding-bottom: 10px;
+}
+
+.link {
+  color: #020817;
+  padding: 0px 12px;
+  font-size: 18px;
+  transform: 0.5;
+}
+
+.link:hover {
+  color: rgb(104, 104, 104);
+  text-decoration: none;
+}

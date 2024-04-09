@@ -1,0 +1,12 @@
+.table_filter {
+  cursor: pointer;
+  transform: 0.5s;
+}
+
+.table_filter:hover {
+  color: #2d3238;
+}
+
+.TableRow {
+  user-select: none;
+}
