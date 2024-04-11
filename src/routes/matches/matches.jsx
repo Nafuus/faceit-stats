@@ -14,6 +14,7 @@ import './matches.css'
 import { Button } from '@/components/ui/button'
 import { getMatchId } from '@/store/faceitDataSlice'
 import { Link } from 'react-router-dom'
+
 export default function Matches() {
   const matches = useSelector((state) => state.faceitData.matches)
   const dispatch = useDispatch()

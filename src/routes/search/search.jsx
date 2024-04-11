@@ -23,7 +23,6 @@ export default function Search() {
   const [errorText, setErrorText] = useState(false)
   const [inputWarning, setInputWarning] = useState(false)
   const dispatch = useDispatch()
-  const matchId = useSelector((state) => state.faceitData.matchId)
 
   const { data, isLoading, isError, error } = useGetPlayerQuery(
     { player },
@@ -46,14 +45,11 @@ export default function Search() {
 
   const { data: faceitStats } = useGetFaceitStatsQuery({ player }, { skip })
 
-  // кинуть это в matchRoom
-  const { data: matchRoom } = useGetMatchRoomQuery({ matchId }, { skip })
-
   useEffect(() => {
     if (data && matches && maps) {
-      dispatch(getData({ data, matches, maps, faceitStats, matchRoom }))
+      dispatch(getData({ data, matches, maps, faceitStats }))
     }
-  }, [data, matches, maps, faceitStats, matchRoom])
+  }, [data, matches, maps, faceitStats])
 
   useEffect(() => {
     setErrorText(
@@ -78,7 +74,7 @@ export default function Search() {
   }
 
   const huysosifaceit = () => {
-    console.log('matchroom', matchRoom)
+    console.log('matchroom')
   }
 
   if (isLoading || isLoadingMatches || isLoadingMaps)
