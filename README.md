@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1db5d9ca4733b309de6d88e244a7c531c35a40ac
 ### `yarn dev`
 
 Runs the app in the development mode.<br />
@@ -9,9 +14,3 @@ The page will reload if you make edits.<br />
 
 Builds the app for production to the `dist` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Learn More
-
-You can learn more about building and deploying in the [Vite docs](https://vitejs.dev/).
-
-To learn React, check out the [React documentation](https://react.dev).
