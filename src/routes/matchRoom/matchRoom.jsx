@@ -1,5 +1,13 @@
+import { useSelector } from 'react-redux'
+
 function MatchRoom() {
-  return <div>MatchRoom</div>
+  const matchRoom = useSelector((state) => state.faceitData.matchRoom)
+
+  return (
+    <>
+      <div>Map:{matchRoom?.rounds[0].round_stats.Map}</div>
+    </>
+  )
 }
 
 export default MatchRoom

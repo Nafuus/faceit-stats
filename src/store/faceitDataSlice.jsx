@@ -10,11 +10,18 @@ const faceitDataSlice = createSlice({
         matches: action.payload.matches,
         maps: action.payload.maps,
         faceitStats: action.payload.faceitStats,
+        matchRoom: action.payload.matchRoom,
+      }
+    },
+    getMatchId: (state, action) => {
+      return {
+        ...state,
+        matchId: action.payload,
       }
     },
   },
 })
 
-export const { getData } = faceitDataSlice.actions
+export const { getData, getMatchId } = faceitDataSlice.actions
 
 export default faceitDataSlice.reducer

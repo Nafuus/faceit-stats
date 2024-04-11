@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import searchIcon from '../../assets/searchIcon.svg'
 import PlayerChoice from './playerСhoice/playerChoice'
 import './search.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getData } from '../../store/faceitDataSlice'
 import {
   useGetFaceitStatsQuery,
@@ -23,10 +23,11 @@ export default function Search() {
   const [errorText, setErrorText] = useState(false)
   const [inputWarning, setInputWarning] = useState(false)
   const dispatch = useDispatch()
+  const matchId = useSelector((state) => state.faceitData.matchId)
 
   const { data, isLoading, isError, error } = useGetPlayerQuery(
     { player },
-    { skip: skip },
+    { skip },
   )
 
   const {
@@ -34,27 +35,25 @@ export default function Search() {
     isLoading: isLoadingMatches,
     isError: isErrorMatches,
     error: errorMatches,
-  } = useGetMatchesQuery({ player }, { skip: skip })
+  } = useGetMatchesQuery({ player }, { skip })
 
   const {
     data: maps,
     isLoading: isLoadingMaps,
     isError: isErrorMaps,
     error: errorMaps,
-  } = useGetMapsQuery({ player }, { skip: skip })
+  } = useGetMapsQuery({ player }, { skip })
 
-  const { data: faceitStats } = useGetFaceitStatsQuery(
-    { player },
-    { skip: skip },
-  )
+  const { data: faceitStats } = useGetFaceitStatsQuery({ player }, { skip })
 
-  // const { data: matchRoom } = useGetMatchRoomQuery({ matchId }, { skip: skip })
+  // кинуть это в matchRoom
+  const { data: matchRoom } = useGetMatchRoomQuery({ matchId }, { skip })
 
   useEffect(() => {
     if (data && matches && maps) {
-      dispatch(getData({ data, matches, maps, faceitStats }))
+      dispatch(getData({ data, matches, maps, faceitStats, matchRoom }))
     }
-  }, [data, matches, maps, faceitStats])
+  }, [data, matches, maps, faceitStats, matchRoom])
 
   useEffect(() => {
     setErrorText(
@@ -79,8 +78,7 @@ export default function Search() {
   }
 
   const huysosifaceit = () => {
-    console.log('faceitStats', faceitStats)
-    console.log('player', data)
+    console.log('matchroom', matchRoom)
   }
 
   if (isLoading || isLoadingMatches || isLoadingMaps)

@@ -7,12 +7,16 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import MapIconFilter from '../../components/mapIconFilter'
 import './matches.css'
 
+import { Button } from '@/components/ui/button'
+import { getMatchId } from '@/store/faceitDataSlice'
+import { Link } from 'react-router-dom'
 export default function Matches() {
   const matches = useSelector((state) => state.faceitData.matches)
+  const dispatch = useDispatch()
 
   return (
     <div className="matches">
@@ -27,7 +31,8 @@ export default function Matches() {
             <TableHead>Score</TableHead>
             <TableHead>KDA</TableHead>
             <TableHead>HLTV</TableHead>
-            <TableHead className="text-right">Match</TableHead>
+            <TableHead>Room</TableHead>
+            <TableHead className="text-right">Link</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -63,9 +68,14 @@ export default function Matches() {
               >
                 {match?.hltv}
               </TableCell>
+              <TableCell>
+                <Button onClick={() => dispatch(getMatchId(match?.matchId))}>
+                  <Link to="/matchRoom">t</Link>
+                </Button>
+              </TableCell>
               <TableCell className="text-right">
                 <a href={match?.url} target="_blank" rel="noopener noreferrer">
-                  room
+                  0
                 </a>
               </TableCell>
             </TableRow>
