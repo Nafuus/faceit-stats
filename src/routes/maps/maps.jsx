@@ -15,6 +15,7 @@ const Maps = () => {
   const mapsData = useSelector((state) => state.faceitData.maps)
   const [sortBy, setSortBy] = useState(null)
   const [sortOrder, setSortOrder] = useState('asc')
+
   const handleSort = (sortByField) => {
     if (sortBy === sortByField) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')

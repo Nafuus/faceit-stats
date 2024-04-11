@@ -11,7 +11,6 @@ export default function Player() {
   return (
     <>
       <div className="player">
-        {/* <img src={faceitStats?.avatar} alt="avatar" className="avatar" /> */}
         <Avatar>
           <AvatarImage src={faceitStats?.avatar} alt="avatar" />
           <AvatarFallback>{matches?.segments[0]?.nickname}</AvatarFallback>
@@ -19,7 +18,7 @@ export default function Player() {
         <div>
           <div>{matches?.segments[0]?.nickname}</div>
           <div>{player?.current_elo} elo</div>
-          <div>{faceitStats?.games.cs2.skill_level} lvl</div>
+          <div>{faceitStats?.games.cs2.skill_level || 'Not found'} lvl</div>
         </div>
       </div>
       <div className="player_wrapper">
@@ -133,7 +132,7 @@ export default function Player() {
           </div>
         </div>
       </div>
-      <ProgressBar currentElo={player?.current_elo} />
+      <ProgressBar player={player} faceitStats={faceitStats} />
     </>
   )
 }

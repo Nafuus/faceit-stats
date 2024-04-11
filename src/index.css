@@ -112,6 +112,11 @@ code {
   color: rgb(194, 192, 192);
 }
 
+.ProgressPrimitive {
+  width: 1050px;
+  margin: 0px 10px;
+}
+
 @media (max-width: 1200px) {
   .matches {
     margin: 0 10px;

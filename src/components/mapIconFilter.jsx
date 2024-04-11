@@ -5,6 +5,7 @@ import de_mirage from '../assets/mapIcon/de_mirage.webp'
 import de_nuke from '../assets/mapIcon/de_nuke.webp'
 import de_overpass from '../assets/mapIcon/de_overpass.webp'
 import de_vertigo from '../assets/mapIcon/de_vertigo.webp'
+import cs2Icon from '../assets/mapIcon/cs2Icon.webp'
 
 const mapIcons = {
   de_ancient,
@@ -23,5 +24,12 @@ export default function MapIconFilter({ map }) {
     return <img src={icon} alt={map} className="mapIcon" />
   }
 
-  return <span>NN</span>
+  return (
+    <img
+      src={cs2Icon}
+      alt="cs2"
+      className="mapIcon"
+      style={{ borderRadius: '50%' }}
+    />
+  )
 }

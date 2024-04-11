@@ -1,13 +1,27 @@
+'use client'
+
 import { Progress } from '@/components/ui/progress'
 import { useEffect, useState } from 'react'
 
-export default function ProgressDemo({ currentElo }) {
-  const [progress, setProgress] = useState(currentElo)
+export default function ProgressBar({ player, faceitStats }) {
+  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    const timer = setTimeout(() => setProgress(100), 500)
+    const normalizedValue = (player?.current_elo / 2000) * 100
+    const timer = setTimeout(
+      () => setProgress(normalizedValue > 100 ? 100 : normalizedValue),
+      500,
+    )
     return () => clearTimeout(timer)
-  }, [currentElo])
+  }, [player])
 
-  return <Progress value={currentElo} className="w-[100%]" />
+  return (
+    <div className="player_wrapper">
+      <div>
+        <div>faceit lvl: {faceitStats?.games.cs2.skill_level}</div>
+        <div>elo: {player?.current_elo}</div>
+        <Progress value={progress} className="w-[auto]" />
+      </div>
+    </div>
+  )
 }

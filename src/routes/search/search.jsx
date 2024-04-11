@@ -20,7 +20,7 @@ export default function Search() {
   const [playerInput, setPlayerInput] = useState('')
   const [player, setPlayer] = useState('')
   const [skip, setSkip] = useState(true)
-  const [errorText, setErrorText] = useState('')
+  const [errorText, setErrorText] = useState(false)
   const [inputWarning, setInputWarning] = useState(false)
   const dispatch = useDispatch()
 
@@ -57,12 +57,10 @@ export default function Search() {
   }, [data, matches, maps, faceitStats])
 
   useEffect(() => {
-    if (!skip && !faceitStats) {
-      setErrorText('Player not found. Please enter a valid player name.')
-    } else {
-      setErrorText('')
-    }
-  }, [skip, faceitStats])
+    setErrorText(
+      !skip && (data === undefined || Object.keys(data).length === 0),
+    )
+  }, [data, skip])
 
   const getPlayer = () => {
     if (playerInput === '') {
@@ -80,9 +78,9 @@ export default function Search() {
     setSkip(false)
   }
 
-  ///
-  const consoleLog = () => {
-    console.log('faceit stat', faceitStats)
+  const huysosifaceit = () => {
+    console.log('faceitStats', faceitStats)
+    console.log('player', data)
   }
 
   if (isLoading || isLoadingMatches || isLoadingMaps)
@@ -107,7 +105,10 @@ export default function Search() {
             placeholder="Enter player name"
             value={playerInput}
             onChange={(e) => setPlayerInput(e.target.value)}
-            onClick={() => setInputWarning(false)}
+            onClick={() => {
+              setInputWarning(false)
+              setErrorText(false)
+            }}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
                 getPlayer()
@@ -117,12 +118,16 @@ export default function Search() {
           <Button onClick={getPlayer}>
             <img src={searchIcon} alt="searchIcon" className="searchIcon" />
           </Button>
-          <Button onClick={consoleLog()}>console</Button>
+          <Button onClick={huysosifaceit}>console</Button>
         </div>
         <div>
-          {errorText && <div className="warning active">{errorText}</div>}
+          {errorText && (
+            <div className="warning">
+              Player data not found. Please enter a valid player name.
+            </div>
+          )}
           {inputWarning && (
-            <div className="warning active">Please enter a player name.</div>
+            <div className="warning">Please enter a player name.</div>
           )}
         </div>
       </div>

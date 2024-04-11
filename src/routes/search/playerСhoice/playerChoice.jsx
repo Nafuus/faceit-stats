@@ -5,7 +5,7 @@ const players = [
   'niko',
   'm0NESY',
   'ZywOo',
-  'donk',
+  'donk666',
   'rain',
   'ropz',
   'brokyy',
