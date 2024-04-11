@@ -70,9 +70,11 @@ export default function Matches() {
                 {match?.hltv}
               </TableCell>
               <TableCell>
-                <Button onClick={() => dispatch(getMatchId(match?.matchId))}>
-                  <Link to="/matchRoom">t</Link>
-                </Button>
+                <Link to="/matchRoom">
+                  <Button onClick={() => dispatch(getMatchId(match?.matchId))}>
+                    t
+                  </Button>
+                </Link>
               </TableCell>
               <TableCell className="text-right">
                 <a href={match?.url} target="_blank" rel="noopener noreferrer">

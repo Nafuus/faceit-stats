@@ -1,4 +1,5 @@
 import { useGetMatchRoomQuery } from '@/api/faceitApi'
+import MapIconFilter from '@/components/mapIconFilter'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
@@ -22,7 +23,7 @@ function MatchRoom() {
     )
   return (
     <>
-      <div onClick={() => setSkip(false)}>132</div>
+      <MapIconFilter map={matchRoom?.rounds[0].round_stats.Map} />
       <div>{matchRoom?.rounds[0].round_stats.Map}</div>
     </>
   )
