@@ -3,7 +3,7 @@
 import { Progress } from '@/components/ui/progress'
 import { useEffect, useState } from 'react'
 
-export default function ProgressBar({ player, faceitStats }) {
+export const ProgressBar = ({ player, faceitStats }) => {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {

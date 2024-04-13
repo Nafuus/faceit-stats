@@ -1,10 +1,10 @@
 import { TableCell, TableRow } from '@/components/ui/table'
-import MapIconFilter from '../../../components/mapIconFilter'
+import { MapIconFilter } from '@/components/mapIconFilter'
 
-const MapTableRow = ({ map }) => (
+export const MapTableRow = ({ map }) => (
   <TableRow>
     <TableCell>
-      <MapIconFilter map={map?.map} />
+      <MapIconFilter icon={map?.map} />
     </TableCell>
     <TableCell className="font-medium">{map?.map}</TableCell>
     <TableCell>{map?.m}</TableCell>
@@ -41,5 +41,3 @@ const MapTableRow = ({ map }) => (
     </TableCell>
   </TableRow>
 )
-
-export default MapTableRow

@@ -1,6 +1,6 @@
 import { TableHead } from '@/components/ui/table'
 
-const SortableTableHead = ({
+export const SortableTableHead = ({
   field,
   label,
   onClick,
@@ -14,5 +14,3 @@ const SortableTableHead = ({
     {label} {renderSortIndicator(field)}
   </TableHead>
 )
-
-export default SortableTableHead

@@ -1,12 +1,15 @@
 import { useSelector } from 'react-redux'
-import './player.css'
-import ProgressBar from './progressBar/progressBar'
+import { ProgressBar } from './progressBar/progressBar'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
-export default function Player() {
+import './player.css'
+
+export const Player = () => {
   const player = useSelector((state) => state.faceitData.player)
   const matches = useSelector((state) => state.faceitData.matches)
   const faceitStats = useSelector((state) => state.faceitData.faceitStats)
+
+  // тут компоненты бокс stast
 
   return (
     <>
@@ -21,6 +24,7 @@ export default function Player() {
           <div>{faceitStats?.games.cs2.skill_level || 'Not found'} lvl</div>
         </div>
       </div>
+      {/* <Box stats={stats}/> */}
       <div className="player_wrapper">
         {/* avg stats */}
         <div className="box">

@@ -3,7 +3,7 @@ import { api } from '../api/api'
 import { faceitApi } from '../api/faceitApi'
 import faceitDataReducer from './faceitDataSlice'
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     faceitData: faceitDataReducer,
     [api.reducerPath]: api.reducer,
@@ -12,5 +12,3 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware, faceitApi.middleware),
 })
-
-export default store

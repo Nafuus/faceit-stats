@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom'
+
 import './navbar.css'
 
-export default function Navbar() {
+export const Navbar = () => {
   return (
     <div className="navbar">
       <NavLink to="/player" className="link">

@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+
+import { Button } from '@/components/ui/button'
+
 import {
   useGetMapsQuery,
   useGetMatchesQuery,
   useGetPlayerQuery,
-} from '../../api/api'
-import Navbar from './navbar/navbar'
-import { Button } from '@/components/ui/button'
-import searchIcon from '../../assets/searchIcon.svg'
-import PlayerChoice from './playerСhoice/playerChoice'
-import './search.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { getData } from '../../store/faceitDataSlice'
-import {
-  useGetFaceitStatsQuery,
-  useGetMatchRoomQuery,
-} from '../../api/faceitApi'
+} from '@/api/api'
+import { getData } from '@/store/faceitDataSlice'
+import { useGetFaceitStatsQuery } from '@/api/faceitApi'
 
-export default function Search() {
+import searchIcon from '/assets/searchIcon.svg'
+
+import { PlayerChoice } from './playerСhoice/playerChoice'
+import { Navbar } from './navbar/navbar'
+import './search.css'
+
+export const Search = () => {
   const [playerInput, setPlayerInput] = useState('')
   const [player, setPlayer] = useState('')
   const [skip, setSkip] = useState(true)
@@ -43,7 +44,8 @@ export default function Search() {
     error: errorMaps,
   } = useGetMapsQuery({ player }, { skip })
 
-  const { data: faceitStats } = useGetFaceitStatsQuery({ player }, { skip })
+  const { data: faceitStats, isLoading: isLoadingFaceitStats } =
+    useGetFaceitStatsQuery({ player }, { skip })
 
   useEffect(() => {
     if (data && matches && maps) {
@@ -79,14 +81,15 @@ export default function Search() {
 
   if (isLoading || isLoadingMatches || isLoadingMaps)
     return <h1 className="loading">Loading...</h1>
+
   if (isError || isErrorMatches || isErrorMaps)
     return (
-      <div>
+      <>
         <h1>Error:</h1>
         {error.status} {JSON.stringify(error.data)}
         {errorMatches.status} {JSON.stringify(errorMatches.data)}
         {errorMaps.status} {JSON.stringify(errorMaps.data)}
-      </div>
+      </>
     )
 
   return (

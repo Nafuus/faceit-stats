@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+
 import {
   Table,
   TableBody,
@@ -7,11 +8,15 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import './maps.css'
-import SortableTableHead from './components/SortableTableHead'
-import MapTableRow from './components/MapTableRow'
 
-const Maps = () => {
+import { SortableTableHead } from './components/SortableTableHead'
+import { MapTableRow } from './components/MapTableRow'
+import './maps.css'
+
+// делать импорты как показано выше
+// сверху самые основные потом те которые идут через @ а потом локальные те которые идут через ./
+// делать экспорты вот так
+export const Maps = () => {
   const mapsData = useSelector((state) => state.faceitData.maps)
   const [sortBy, setSortBy] = useState(null)
   const [sortOrder, setSortOrder] = useState('asc')
@@ -118,5 +123,3 @@ const Maps = () => {
     </div>
   )
 }
-
-export default Maps

@@ -1,5 +1,5 @@
 import './footer.css'
 
-export default function footer() {
+export const footer = () => {
   return <footer>contact</footer>
 }

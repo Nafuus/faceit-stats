@@ -1,9 +1,8 @@
-import { useGetMatchRoomQuery } from '@/api/faceitApi'
-import MapIconFilter from '@/components/mapIconFilter'
-import { useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useGetMatchRoomQuery } from '@/api/faceitApi'
+import { MapIconFilter } from '@/components/mapIconFilter'
 
-function MatchRoom() {
+export const MatchRoom = () => {
   const matchId = useSelector((state) => state.faceitData.matchId)
 
   const {
@@ -23,10 +22,8 @@ function MatchRoom() {
     )
   return (
     <>
-      <MapIconFilter map={matchRoom?.rounds[0].round_stats.Map} />
+      <MapIconFilter icon={matchRoom?.rounds[0].round_stats.Map} />
       <div>{matchRoom?.rounds[0].round_stats.Map}</div>
     </>
   )
 }
-
-export default MatchRoom

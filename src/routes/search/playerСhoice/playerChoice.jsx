@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 
 const players = [
@@ -13,13 +12,14 @@ const players = [
   'electronic',
 ]
 
-export default function PlayerChoice({ onPlayerChoiceClick }) {
-  const [randomPlayers, setRandomPlayers] = useState(() => {
-    const shuffledIndexes = [...Array(players.length).keys()].sort(
-      () => Math.random() - 0.5,
-    )
-    return shuffledIndexes.slice(0, 3).map((index) => players[index])
-  })
+const shuffledIndexes = [...Array(players.length).keys()].sort(
+  () => Math.random() - 0.5,
+)
+
+export const PlayerChoice = ({ onPlayerChoiceClick }) => {
+  const randomPlayers = shuffledIndexes
+    .slice(0, 3)
+    .map((index) => players[index])
 
   return (
     <>

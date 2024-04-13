@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   Table,
   TableBody,
@@ -6,16 +8,14 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { Button } from '@/components/ui/button'
 
-import { useDispatch, useSelector } from 'react-redux'
-import MapIconFilter from '../../components/mapIconFilter'
+import { getMatchId } from '@/store/faceitDataSlice'
+import { MapIconFilter } from '@/components/mapIconFilter'
+
 import './matches.css'
 
-import { Button } from '@/components/ui/button'
-import { getMatchId } from '@/store/faceitDataSlice'
-import { Link } from 'react-router-dom'
-
-export default function Matches() {
+export const Matches = () => {
   const matches = useSelector((state) => state.faceitData.matches)
   const dispatch = useDispatch()
 
@@ -47,7 +47,7 @@ export default function Matches() {
               <TableCell className="font-medium">{match?.date}</TableCell>
               <TableCell>{match?.i5}</TableCell>
               <TableCell>
-                <MapIconFilter map={match?.map} />
+                <MapIconFilter icon={match?.map} />
               </TableCell>
               <TableCell>{match?.map}</TableCell>
               <TableCell
@@ -58,9 +58,7 @@ export default function Matches() {
               >
                 {match?.i18}
               </TableCell>
-              <TableCell>
-                {match?.k + ' - ' + match?.d + ' - ' + match?.a}
-              </TableCell>
+              <TableCell>{`${match?.k} - ${match?.d} - ${match?.a}`}</TableCell>
               <TableCell
                 style={{
                   color: `${match?.hltv >= 1 ? 'rgb(19, 201, 19)' : 'rgb(240, 27, 45)'}`,

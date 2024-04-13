@@ -1,9 +1,10 @@
-import Search from './search/search'
-import Header from '../components/header/header'
-import Footer from '../components/footer/footer'
 import { Outlet } from 'react-router-dom'
 
-function Layout() {
+import { Search } from './search/search'
+import { Header } from '../components/header/header'
+// import { Footer } from '../components/footer/footer'
+
+export const Layout = () => {
   return (
     <>
       <Header />
@@ -13,5 +14,3 @@ function Layout() {
     </>
   )
 }
-
-export default Layout

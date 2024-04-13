@@ -1,8 +1,9 @@
-import './header.css'
-import logo from '../../assets/faceit-seeklogo.svg'
 import { Link, NavLink } from 'react-router-dom'
 
-export default function header() {
+import './header.css'
+import logo from '/assets/faceit-seeklogo.svg'
+
+export const Header = () => {
   return (
     <header>
       <Link to="/">
