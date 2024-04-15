@@ -21,3 +21,9 @@
   font-size: 16px;
   padding: 0 3px;
 }
+
+.matches_linkIcon {
+  width: 18px;
+  height: 24px;
+  pointer-events: none;
+}

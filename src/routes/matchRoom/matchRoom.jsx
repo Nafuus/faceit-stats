@@ -1,6 +1,13 @@
 import { useSelector } from 'react-redux'
-import { useGetMatchRoomQuery } from '@/api/faceitApi'
+import { Button } from '@/components/ui/button'
+
+import {
+  useGetMatchRoomPlayerQuery,
+  useGetMatchRoomQuery,
+} from '@/api/faceitApi'
 import { MapIconFilter } from '@/components/mapIconFilter'
+
+import './matchRoom.css'
 
 export const MatchRoom = () => {
   const matchId = useSelector((state) => state.faceitData.matchId)
@@ -12,18 +19,33 @@ export const MatchRoom = () => {
     error,
   } = useGetMatchRoomQuery({ matchId })
 
-  if (isLoading) return <h1 className="loading">Loading...</h1>
-  if (isError)
+  const {
+    data: matchRoomPlayer,
+    isLoading: isLoadingMatchRoomPlayer,
+    isError: isErrorMatchRoomPlayer,
+    error: errorMatchRoomPlayer,
+  } = useGetMatchRoomPlayerQuery({ matchId })
+
+  //
+  const huysosifaceit = () => {
+    console.log('matchRoom:', matchRoom)
+    console.log('matchRoomPlayer:', matchRoomPlayer)
+  }
+
+  if (isLoading || isLoadingMatchRoomPlayer)
+    return <h1 className="loading">Loading...</h1>
+  if (isError || isErrorMatchRoomPlayer)
     return (
       <div>
         <h1>Error:</h1>
         {error.status} {JSON.stringify(error.data)}
+        {errorMatchRoomPlayer.status}
+        {JSON.stringify(errorMatchRoomPlayer.data)}
       </div>
     )
   return (
-    <>
-      <MapIconFilter icon={matchRoom?.rounds[0].round_stats.Map} />
-      <div>{matchRoom?.rounds[0].round_stats.Map}</div>
-    </>
+    <div className="match_room">
+      <Button onClick={huysosifaceit}>click</Button>
+    </div>
   )
 }

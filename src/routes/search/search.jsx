@@ -44,8 +44,7 @@ export const Search = () => {
     error: errorMaps,
   } = useGetMapsQuery({ player }, { skip })
 
-  const { data: faceitStats, isLoading: isLoadingFaceitStats } =
-    useGetFaceitStatsQuery({ player }, { skip })
+  const { data: faceitStats } = useGetFaceitStatsQuery({ player }, { skip })
 
   useEffect(() => {
     if (data && matches && maps) {
@@ -76,7 +75,7 @@ export const Search = () => {
   }
 
   const huysosifaceit = () => {
-    console.log('matchroom')
+    console.log('faceit:', faceitStats)
   }
 
   if (isLoading || isLoadingMatches || isLoadingMaps)

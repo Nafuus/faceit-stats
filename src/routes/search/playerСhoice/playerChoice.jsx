@@ -10,6 +10,14 @@ const players = [
   'brokyy',
   'Perfecto',
   'electronic',
+  's1mple',
+  'blameF',
+  'zont1x',
+  'Boombl4',
+  'Jame',
+  'n0rb3r7',
+  'deko-_-',
+  'nafany',
 ]
 
 const shuffledIndexes = [...Array(players.length).keys()].sort(

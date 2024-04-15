@@ -8,7 +8,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { Button } from '@/components/ui/button'
 
 import { getMatchId } from '@/store/faceitDataSlice'
 import { MapIconFilter } from '@/components/mapIconFilter'
@@ -23,7 +22,7 @@ export const Matches = () => {
     <div className="matches">
       <Table className="table">
         <TableHeader>
-          <TableRow>
+          <TableRow className="hover:bg-muted/0">
             <TableHead>W/L</TableHead>
             <TableHead>Date</TableHead>
             <TableHead>Team</TableHead>
@@ -67,16 +66,29 @@ export const Matches = () => {
               >
                 {match?.hltv}
               </TableCell>
-              <TableCell>
+              <TableCell
+                style={{ width: '0', height: '0', paddingLeft: '27px' }}
+              >
                 <Link to="/matchRoom">
-                  <Button onClick={() => dispatch(getMatchId(match?.matchId))}>
-                    t
-                  </Button>
+                  <button onClick={() => dispatch(getMatchId(match?.matchId))}>
+                    <img
+                      src="/assets/matchRoomIcon.svg"
+                      alt="matchRoom"
+                      className="matches_linkIcon"
+                    />
+                  </button>
                 </Link>
               </TableCell>
-              <TableCell className="text-right">
+              <TableCell
+                className="text-right"
+                style={{ width: '0', height: '0', paddingLeft: '22px' }}
+              >
                 <a href={match?.url} target="_blank" rel="noopener noreferrer">
-                  0
+                  <img
+                    src="/assets/matchLinkIcon.svg"
+                    alt="link"
+                    className="matches_linkIcon"
+                  />
                 </a>
               </TableCell>
             </TableRow>

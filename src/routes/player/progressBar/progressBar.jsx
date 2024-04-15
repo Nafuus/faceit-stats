@@ -3,7 +3,7 @@
 import { Progress } from '@/components/ui/progress'
 import { useEffect, useState } from 'react'
 
-export const ProgressBar = ({ player, faceitStats }) => {
+export const ProgressBar = ({ player }) => {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
@@ -17,11 +17,7 @@ export const ProgressBar = ({ player, faceitStats }) => {
 
   return (
     <div className="player_wrapper">
-      <div>
-        <div>faceit lvl: {faceitStats?.games.cs2.skill_level}</div>
-        <div>elo: {player?.current_elo}</div>
-        <Progress value={progress} className="w-[auto]" />
-      </div>
+      <Progress value={progress} className="w-[auto]" />
     </div>
   )
 }

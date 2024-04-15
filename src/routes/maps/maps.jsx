@@ -13,9 +13,6 @@ import { SortableTableHead } from './components/SortableTableHead'
 import { MapTableRow } from './components/MapTableRow'
 import './maps.css'
 
-// делать импорты как показано выше
-// сверху самые основные потом те которые идут через @ а потом локальные те которые идут через ./
-// делать экспорты вот так
 export const Maps = () => {
   const mapsData = useSelector((state) => state.faceitData.maps)
   const [sortBy, setSortBy] = useState(null)
@@ -63,7 +60,7 @@ export const Maps = () => {
     <div className="matches">
       <Table className="table">
         <TableHeader>
-          <TableRow className="TableRow">
+          <TableRow className="TableRow hover:bg-muted/0">
             <TableHead>Map</TableHead>
             <TableHead>Name</TableHead>
             <SortableTableHead

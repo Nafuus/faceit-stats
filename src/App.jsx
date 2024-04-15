@@ -7,7 +7,7 @@ import { Matches } from './routes/matches/matches'
 import { Maps } from './routes/maps/maps'
 import { MatchRoom } from './routes/matchRoom/matchRoom'
 import { Faq } from './routes/faq/faq'
-import { Layout } from './routes/layout'
+import { Layout } from './components/layout'
 
 export const App = () => {
   return (
@@ -26,18 +26,15 @@ export const App = () => {
   )
 }
 
-// стилизовать progressBar
-// Взять еще статистики из Faceit Stats
-// Мб сделать player основной страницей
 // глянуть может быть в api фейсита есть тиммейты
+// сделать ерроры по другому
 
-// леаут в компонентс
+// кешировать потом иконки и прочую хуйню
+
 // если что то повторяется вынсить в отдельную константу
 // логика за компонент и принимать аргументы. Создаваьт объект аргументов
 // не использовать export default
 // @ от scr
-// подправить импорты везде
-// кешировать потом иконки и прочую хуйню
 // в {data.huy 'huy'} вместо такого делать {`${data.huy} huy`}
 
 // из функционала TODO:
