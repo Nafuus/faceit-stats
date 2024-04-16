@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-=======
+### You can watch it here
+https://main--stately-medovik-1082e6.netlify.app/
 
 
->>>>>>> 1db5d9ca4733b309de6d88e244a7c531c35a40ac
 ### `yarn dev`
 
 Runs the app in the development mode.<br />
