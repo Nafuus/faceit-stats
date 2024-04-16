@@ -33,15 +33,3 @@ export const {
   useGetMatchRoomPlayerQuery,
   useGetMatchRoomQuery,
 } = faceitApi
-
-// matches/{match_id} - матч рума
-// matches/{match_id}/stats - статистика всех игроков
-// player/{player_id}/history - история матчей(я так понимаю надо брать айди матча отсюда и пихать в matches/{match_id}
-// ranking/games/{games_id}/redigions - топ эло
-// search/players - поисковик игроков. Ищет приблизительно тех кого ты пишешь
-//   https://open.faceit.com/data/v4/matches/{match_id}/stats
-
-// 7d7afa91-9fff-4326-b4f9-c7cbfced029c - мой айдишник
-// 6f7a1cca-df43-4d80-98e5-d83bcaacfd82 - k0ngen
-// 93306681-bce6-4369-8c41-e0bdba2597ed - m0NESY
-// api key - 0240485b-8113-4540-b823-8ee55352673c

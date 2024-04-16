@@ -74,10 +74,6 @@ export const Search = () => {
     setSkip(false)
   }
 
-  const huysosifaceit = () => {
-    console.log('faceit:', faceitStats)
-  }
-
   if (isLoading || isLoadingMatches || isLoadingMaps)
     return <h1 className="loading">Loading...</h1>
 
@@ -114,7 +110,6 @@ export const Search = () => {
           <Button onClick={getPlayer}>
             <img src={searchIcon} alt="searchIcon" className="searchIcon" />
           </Button>
-          <Button onClick={huysosifaceit}>console</Button>
         </div>
         <div>
           {errorText && (

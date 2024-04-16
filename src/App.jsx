@@ -1,12 +1,12 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 
-import { Search } from './routes/search/search'
 import { Player } from './routes/player/player'
 import { Matches } from './routes/matches/matches'
 import { Maps } from './routes/maps/maps'
 import { MatchRoom } from './routes/matchRoom/matchRoom'
 import { Faq } from './routes/faq/faq'
+import { NotFound } from './routes/notFound/notFound'
 import { Layout } from './components/layout'
 
 export const App = () => {
@@ -19,25 +19,15 @@ export const App = () => {
           <Route path="maps" element={<Maps />} />
           <Route path="matchRoom" element={<MatchRoom />} />
           <Route path="faq" element={<Faq />} />
-          {/* <Route path="*" element={<Notfound />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>
   )
 }
 
-// глянуть может быть в api фейсита есть тиммейты
-// сделать ерроры по другому
-
-// кешировать потом иконки и прочую хуйню
-
-// если что то повторяется вынсить в отдельную константу
-// логика за компонент и принимать аргументы. Создаваьт объект аргументов
-// не использовать export default
-// @ от scr
-// в {data.huy 'huy'} вместо такого делать {`${data.huy} huy`}
-
 // из функционала TODO:
+// кешировать потом иконки и прочую хуйню
 // добавить мемоизацию
 // добавить англ/рус язык
 // добавит другого разного функционала

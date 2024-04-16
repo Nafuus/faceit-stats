@@ -5,9 +5,9 @@ import {
   useGetMatchRoomPlayerQuery,
   useGetMatchRoomQuery,
 } from '@/api/faceitApi'
-import { MapIconFilter } from '@/components/mapIconFilter'
 
 import './matchRoom.css'
+import { PlayersRoom } from './playersRoom/playersRoom'
 
 export const MatchRoom = () => {
   const matchId = useSelector((state) => state.faceitData.matchId)
@@ -45,7 +45,7 @@ export const MatchRoom = () => {
     )
   return (
     <div className="match_room">
-      <Button onClick={huysosifaceit}>click</Button>
+      <PlayersRoom matchRoomPlayer={matchRoomPlayer} matchRoom={matchRoom} />
     </div>
   )
 }
