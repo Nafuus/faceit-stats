@@ -49,7 +49,7 @@ export const Player = () => {
       <ProgressBar player={player} />
       <div className="player_wrapper">
         <div className="OtherPlayerStats">
-          <div>
+          <div className="steam">
             <div>Steam ID: {faceitStats?.steam_id_64}</div>
             <div>Steam nickname: {faceitStats?.steam_nickname}</div>
           </div>
