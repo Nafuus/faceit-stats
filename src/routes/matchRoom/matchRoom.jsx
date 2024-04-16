@@ -7,7 +7,8 @@ import {
 } from '@/api/faceitApi'
 
 import './matchRoom.css'
-import { PlayersRoom } from './playersRoom/playersRoom'
+import { MatchResult } from './components/matchResult'
+import { Scoreboard } from './components/scoreboard'
 
 export const MatchRoom = () => {
   const matchId = useSelector((state) => state.faceitData.matchId)
@@ -26,12 +27,6 @@ export const MatchRoom = () => {
     error: errorMatchRoomPlayer,
   } = useGetMatchRoomPlayerQuery({ matchId })
 
-  //
-  const huysosifaceit = () => {
-    console.log('matchRoom:', matchRoom)
-    console.log('matchRoomPlayer:', matchRoomPlayer)
-  }
-
   if (isLoading || isLoadingMatchRoomPlayer)
     return <h1 className="loading">Loading...</h1>
   if (isError || isErrorMatchRoomPlayer)
@@ -45,7 +40,17 @@ export const MatchRoom = () => {
     )
   return (
     <div className="match_room">
-      <PlayersRoom matchRoomPlayer={matchRoomPlayer} matchRoom={matchRoom} />
+      <MatchResult matchRoomPlayer={matchRoomPlayer} matchRoom={matchRoom} />
+      <Scoreboard
+        matchRoomPlayer={matchRoomPlayer}
+        matchRoom={matchRoom}
+        teamNum={0}
+      />
+      <Scoreboard
+        matchRoomPlayer={matchRoomPlayer}
+        matchRoom={matchRoom}
+        teamNum={1}
+      />
     </div>
   )
 }
